@@ -4,4 +4,4 @@ composer.phar
 vendor/
 reports/
 /.docker/cache
-/.docker/.bash_history
+.bash_history
