@@ -39,5 +39,6 @@ network:
 bash:
 	$(RUN_IN_CONTAINER)
 
+## will run install command of composer
 composer-install:
 	$(EXEC_IN_CONTAINER) $(QUOTE)composer install -o$(QUOTE)
