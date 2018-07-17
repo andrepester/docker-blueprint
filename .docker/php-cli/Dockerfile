@@ -14,7 +14,4 @@ RUN apk add --no-cache --virtual .build-deps \
     && apk del .build-deps \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-ADD php.ini /usr/local/etc/php/php.ini
-#ADD .bashrc /home/www-data/.bashrc
-
 WORKDIR /usr/src/app

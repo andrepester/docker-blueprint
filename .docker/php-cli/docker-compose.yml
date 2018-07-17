@@ -10,8 +10,9 @@ services:
     volumes:
       - ../../:/usr/src/app
       - ./cache/composer:/composer/cache/
-      - .bash_history:/home/www-data/.bash_history
-      - .bashrc:/home/www-data/.bashrc
+      - ./.bash_history:/home/www-data/.bash_history
+      - ./.bashrc:/home/www-data/.bashrc
+      - ./php.ini:/usr/local/etc/php/php.ini
       - ~/.ssh/:/home/www-data/.ssh
     networks:
       - test-docker
