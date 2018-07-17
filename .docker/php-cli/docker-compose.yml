@@ -1,0 +1,21 @@
+version: '3'
+services:
+  php-cli:
+    container_name: test-docker
+    image: test-docker
+    build: .
+    user: www-data
+    entrypoint: bash
+    working_dir: /usr/src/app
+    volumes:
+      - ../../:/usr/src/app
+      - ./cache/composer:/composer/cache/
+      - .bash_history:/home/www-data/.bash_history
+      - .bashrc:/home/www-data/.bashrc
+      - ~/.ssh/:/home/www-data/.ssh
+    networks:
+      - test-docker
+networks:
+  test-docker:
+    external:
+      name: test-docker
