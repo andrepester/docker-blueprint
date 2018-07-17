@@ -5,6 +5,8 @@ COLOR_INFO    = \033[32m
 COLOR_COMMENT = \033[33m
 
 RUN_IN_CONTAINER = docker-compose -f .docker/php-cli/docker-compose.yml run --rm php-cli
+EXEC_IN_CONTAINER = $(RUN_IN_CONTAINER) -c
+QUOTE = "
 
 ## shows this manual
 help:
@@ -22,7 +24,7 @@ help:
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 
 ## will setup docker containers, network and installing composer packages
-install: build network
+install: build network composer-install
 
 ## will setup docker containers
 build:
@@ -36,3 +38,6 @@ network:
 ## will enter a bash within php-cli docker container
 bash:
 	$(RUN_IN_CONTAINER)
+
+composer-install:
+	$(EXEC_IN_CONTAINER) $(QUOTE)composer install -o$(QUOTE)

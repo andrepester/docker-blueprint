@@ -1,0 +1,34 @@
+{
+    "name": "andrepester/docker-blueprint",
+    "version": "0.1-dev",
+    "type": "project",
+    "license": "MIT",
+    "description": "Docker blueprint for fast setup a new project",
+    "authors": [
+        {
+            "name": "André Pester",
+            "email": "mail@andre.tools",
+            "homepage": "https://andre.tools",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DockerBlueprint\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DockerBlueprint\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.2"
+    }
+}
