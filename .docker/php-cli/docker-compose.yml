@@ -1,8 +1,8 @@
 version: '3'
 services:
   php-cli:
-    container_name: test-docker
-    image: test-docker
+    container_name: docker-blueprint
+    image: docker-blueprint
     build: .
     user: www-data
     entrypoint: bash
@@ -15,8 +15,8 @@ services:
       - ./php.ini:/usr/local/etc/php/php.ini
       - ~/.ssh/:/home/www-data/.ssh
     networks:
-      - test-docker
+      - docker-blueprint
 networks:
-  test-docker:
+  docker-blueprint:
     external:
-      name: test-docker
+      name: docker-blueprint

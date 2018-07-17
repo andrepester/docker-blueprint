@@ -31,7 +31,7 @@ build:
 
 ## will setup docker network
 network:
-	 docker network ls | grep test-docker || docker network create test-docker
+	 docker network ls | grep docker-blueprint || docker network create docker-blueprint
 
 ## will enter a bash within php-cli docker container
 bash:
