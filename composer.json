@@ -19,7 +19,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "DockerBlueprint\\Tests\\": "tests/"
+            "DockerBlueprint\\Test\\Unit\\": "tests/Unit/",
+            "DockerBlueprint\\Test\\Integration\\": "tests/Integration/",
+            "DockerBlueprint\\Test\\System\\": "tests/System/"
         }
     },
     "config": {

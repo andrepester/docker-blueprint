@@ -3,6 +3,6 @@
 composer.phar
 composer.lock
 vendor/
-reports/
+tests/reports/
 .docker/php-cli/.bash_history
 .docker/php-cli/cache/
