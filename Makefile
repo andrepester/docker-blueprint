@@ -29,7 +29,8 @@ install: build network composer-install
 
 ## setups docker containers
 build:
-	cp .docker/php-cli/.bash_history.dist .docker/php-cli/.bash_history
+	cp .docker/php-cli/.bash_history.dist .docker/php-cli/bash_history
+	mv .docker/php-cli/bash_history .docker/php-cli/.bash_history
 	docker-compose -f .docker/php-cli/docker-compose.yml build
 	docker-compose -f .docker/php-cli/docker-compose.yml down;
 
