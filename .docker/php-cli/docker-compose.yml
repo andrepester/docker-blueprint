@@ -10,9 +10,9 @@ services:
     volumes:
       - ../../:/usr/src/app
       - ./cache/composer:/composer/cache/
-      - ./.bash_history:/home/www-data/.bash_history
-      - ./.bashrc:/home/www-data/.bashrc
-      - ./php.ini:/usr/local/etc/php/php.ini
+      - ./logs/.bash_history:/home/www-data/.bash_history
+      - ./configs/.bashrc:/home/www-data/.bashrc
+      - ./configs/php.ini:/usr/local/etc/php/php.ini
       - ~/.ssh/:/home/www-data/.ssh
     networks:
       - docker-blueprint

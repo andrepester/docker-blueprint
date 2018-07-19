@@ -1,8 +1,7 @@
 .idea
 .DS_Store
-composer.phar
 composer.lock
 vendor/
 tests/reports/
-.docker/php-cli/.bash_history
+.docker/php-cli/logs/
 .docker/php-cli/cache/
