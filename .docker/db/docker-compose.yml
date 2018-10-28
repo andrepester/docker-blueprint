@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    container_name: docker-blueprint-db
+    image: docker-blueprint-db
+    build: .
+    user: www-data
+    entrypoint: /usr/src/app
+    networks:
+      - docker-blueprint-network
+networks:
+  docker-blueprint-network:
+    external:
+      name: docker-blueprint-network

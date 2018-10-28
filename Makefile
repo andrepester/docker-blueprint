@@ -25,18 +25,23 @@ help:
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 
 ## setups docker containers, network and installing composer packages
-install: build network composer-install
+install: network php-cli database composer-install
+
+## setups docker network
+network:
+	docker network ls | grep docker-blueprint-network || docker network create docker-blueprint-network
 
 ## setups docker containers
-build:
-	mkdir .docker/php-cli/logs
+php-cli:
+	mkdir -p .docker/php-cli/logs
 	touch .docker/php-cli/logs/.bash_history
 	docker-compose -f .docker/php-cli/docker-compose.yml build
 	docker-compose -f .docker/php-cli/docker-compose.yml down;
 
-## setups docker network
-network:
-	 docker network ls | grep docker-blueprint || docker network create docker-blueprint
+## setups database
+database:
+	docker-compose -f .docker/db/docker-compose.yml build
+	docker-compose -f .docker/db/docker-compose.yml down
 
 ## enters a bash within php-cli docker container
 bash:
