@@ -1,6 +1,5 @@
 .idea
 .DS_Store
-composer.lock
 vendor/
 tests/reports/
 .docker/php-cli/logs/
