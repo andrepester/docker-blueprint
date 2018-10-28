@@ -1,4 +1,4 @@
-#.SILENT:
+.SILENT:
 
 COLOR_RESET   = \033[0m
 COLOR_INFO    = \033[32m
