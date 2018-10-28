@@ -1,4 +1,4 @@
-#.SILENT:
+.SILENT:
 
 COLOR_RESET   = \033[0m
 COLOR_INFO    = \033[32m
@@ -29,7 +29,7 @@ install: build network composer-install
 
 ## setups docker containers
 build:
-	mkdir .docker/php-cli/logs
+	mkdir -p .docker/php-cli/logs
 	touch .docker/php-cli/logs/.bash_history
 	docker-compose -f .docker/php-cli/docker-compose.yml build
 	docker-compose -f .docker/php-cli/docker-compose.yml down;
