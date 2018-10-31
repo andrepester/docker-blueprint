@@ -1,4 +1,4 @@
-FROM php:7.2-cli-alpine3.7
+FROM php:7.2-cli-alpine3.8
 
 RUN apk add --no-cache --virtual .build-deps \
         $PHPIZE_DEPS \
@@ -7,6 +7,7 @@ RUN apk add --no-cache --virtual .build-deps \
         bash \
         coreutils \
         openssh-client \
+        mysql-client \
     && pecl install \
         xdebug \
     && docker-php-ext-enable \

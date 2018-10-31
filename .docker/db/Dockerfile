@@ -1,7 +1,9 @@
 FROM alpine:latest
 
-RUN apk add --no-cache \
+RUN apk --update add --no-cache \
         mysql \
         mysql-client
 
-WORKDIR /usr/src/app
+ADD run.sh /scripts/run.sh
+
+RUN chmod -R 755 /scripts

@@ -1,10 +1,10 @@
-#.SILENT:
+.SILENT:
 
 COLOR_RESET   = \033[0m
 COLOR_INFO    = \033[32m
 COLOR_COMMENT = \033[33m
 
-RUN_IN_CONTAINER = docker-compose -f .docker/php-cli/docker-compose.yml run --rm php-cli
+RUN_IN_CONTAINER = docker-compose -f .docker/docker-compose.yml run --rm php-cli
 EXEC_IN_CONTAINER = $(RUN_IN_CONTAINER) -c
 QUOTE = "
 PHPUNIT = vendor/bin/phpunit
@@ -25,23 +25,14 @@ help:
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 
 ## setups docker containers, network and installing composer packages
-install: network php-cli database composer-install
+install: build composer-install
 
-## setups docker network
-network:
-	docker network ls | grep docker-blueprint-network || docker network create docker-blueprint-network
-
-## setups docker containers
-php-cli:
+## setups containers
+build:
 	mkdir -p .docker/php-cli/logs
 	touch .docker/php-cli/logs/.bash_history
-	docker-compose -f .docker/php-cli/docker-compose.yml build
-	docker-compose -f .docker/php-cli/docker-compose.yml down;
-
-## setups database
-database:
-	docker-compose -f .docker/db/docker-compose.yml build
-	docker-compose -f .docker/db/docker-compose.yml down
+	docker-compose -f .docker/docker-compose.yml build
+	docker-compose -f .docker/docker-compose.yml down;
 
 ## enters a bash within php-cli docker container
 bash:

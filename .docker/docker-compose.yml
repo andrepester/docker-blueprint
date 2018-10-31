@@ -1,0 +1,41 @@
+version: '3'
+services:
+  php-cli:
+    container_name: docker-blueprint-php-cli
+    image: docker-blueprint-php-cli
+    build: ./php-cli
+    user: www-data
+    entrypoint: bash
+    working_dir: /usr/src/app
+    volumes:
+      - ../:/usr/src/app
+      - ./php-cli/cache/composer:/composer/cache/
+      - ./php-cli/logs/.bash_history:/home/www-data/.bash_history
+      - ./php-cli/configs/.bashrc:/home/www-data/.bashrc
+      - ./php-cli/configs/php.ini:/usr/local/etc/php/php.ini
+      - ~/.ssh/:/home/www-data/.ssh
+    hostname: php-cli
+    networks:
+      - network1
+    links:
+      - db
+  db:
+    container_name: docker-blueprint-db
+    image: docker-blueprint-db
+    build: ./db
+    hostname: db
+    networks:
+      - network1
+    restart: always
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+    entrypoint:
+      - /scripts/run.sh
+    volumes:
+      - ./db/my.cnf:/etc/mysql/my.cnf
+      - /var/lib/mysql
+networks:
+  network1:
+      driver: bridge
