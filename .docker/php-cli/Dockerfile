@@ -7,7 +7,7 @@ RUN apk add --no-cache --virtual .build-deps \
         bash \
         coreutils \
         openssh-client \
-        mysql-client \
+        mariadb-client \
     && pecl install \
         xdebug \
     && docker-php-ext-enable \
