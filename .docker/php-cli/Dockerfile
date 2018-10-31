@@ -6,7 +6,6 @@ RUN apk add --no-cache --virtual .build-deps \
         git \
         bash \
         coreutils \
-        openssh-client \
         mariadb-client \
     && pecl install \
         xdebug \
